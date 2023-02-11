@@ -92,16 +92,6 @@ Project is based on Spring Boot and Hibernate,
 https://github.com/damchap/APIGestionPoubelle/wiki/API-Documentation
 
 
-<!-- LICENSE -->
-## ➤ License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-## 🙇 Author
-#### Damien Chapart
-- Github: [@damchap](https://github.com/damchap)
-
-
 
 
 <!-- ACKNOWLEDGMENTS -->
@@ -164,4 +154,14 @@ Usager "1" *--> "lesHabitations *" Habitation
 
 
 ```
+
+
+<!-- LICENSE -->
+## ➤ License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+## :technologist: Author
+#### Damien Chapart
+- Github: [@damchap](https://github.com/damchap)
 
