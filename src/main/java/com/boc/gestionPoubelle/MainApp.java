@@ -12,7 +12,7 @@ import java.util.Map;
 @RestController
 @RequestMapping()
 @SpringBootApplication
-public class StudentApiApplication {
+public class MainApp {
 	@GetMapping
 	public ResponseEntity<Map<String, Object>> hello(){
 		Map<String, Object> responses = new HashMap<>();
@@ -21,7 +21,7 @@ public class StudentApiApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(StudentApiApplication.class, args);
+		SpringApplication.run(MainApp.class, args);
 	}
 
 }

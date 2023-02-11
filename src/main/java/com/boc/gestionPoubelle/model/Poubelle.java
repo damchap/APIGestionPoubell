@@ -16,27 +16,18 @@ import javax.persistence.Table;
 @Table(name="poubelle")
 public class Poubelle {
 	@Id
-	@Column(name="idPoubelle")
+	@Column(name="id_poubelle")
 	private String idPoubelle;
 	@ManyToOne  // plusieurs poubelles pour 1 type d�chet
-	@JoinColumn(name="idTypeDechet")
+	@JoinColumn(name="id_type_dechet")
 	private TypeDechet nature;
-	@Column(name="idHabitation")
+	@Column(name="id_habitation")
 	private String idHabitation;
 	@OneToMany // plusieurs lev�es pour 1 poubelle
-	@JoinColumn(name = "idPoubelle")
+	@JoinColumn(name = "id_poubelle")
 	private List<Levee> lesLevees;
 
-	public Poubelle() {
-		super();
-	}
-	public Poubelle(String idPoubelle, String idHabitation, TypeDechet nature) {
-		super();
-		this.idPoubelle = idPoubelle;
-		this.idHabitation = idHabitation;
-		this.nature = nature;
-		lesLevees = new ArrayList<Levee>();
-	}
+
 	public String getIdPoubelle() {
 		return idPoubelle;
 	}

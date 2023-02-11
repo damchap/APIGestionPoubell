@@ -1,58 +1,39 @@
 package com.boc.gestionPoubelle.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="usager")
 public class Usager {
 	@Id
-	@Column(name="idUsager")
+	@Column(name="id_usager")
 	private String idUsager;
 	@Column(name="nom")
 	private String nom;
 	@Column(name="prenom")
 	private String prenom;
-	@Column(name="adrRueUsager")
+	@Column(name="adr_rue_usager")
 	private String adrRueUsager;
-	@Column(name="cpUsager")
+	@Column(name="cp_usager")
 	private String cpUsager;
-	@Column(name="adrVilleUsager")
+	@Column(name="adr_ville_usager")
 	private String adrVilleUsager;
 	@Column(name="login")
 	private String login;
 	@Column(name="mdp")
 	private String mdp;
-	@OneToMany  // plusieurs habitations pour 1 usager
-	@JoinColumn(name = "idUsager")
-	// mise en place navigabilit� bidirectionnelle
-	private List<Habitation> lesHabitations;
+	@OneToMany(
+			mappedBy = "usager",
+			cascade = CascadeType.REMOVE,
+			orphanRemoval = true
+	)
+	List<Habitation> lesHabitations = new ArrayList<>();
 
-
-	public Usager() {
-		super();
-	}
-
-	public Usager(String idUsager, String nom, String prenom, String adrRueUsager, String cpUsager,
-			String adrVilleUsager) {
-		super();
-		this.idUsager = idUsager;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.adrRueUsager = adrRueUsager;
-		this.cpUsager = cpUsager;
-		this.adrVilleUsager = adrVilleUsager;
-		this.login ="";
-		this.mdp="";
-		lesHabitations = new ArrayList<Habitation>();
-	}
 
 	public String getIdUsager() {
 		return idUsager;

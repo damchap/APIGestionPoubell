@@ -1,55 +1,46 @@
 package com.boc.gestionPoubelle.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="habitation")
 public  class Habitation {
 	@Id
-	@Column(name="idHabitation")
+	@Column(name="id_habitation")
 	private String idHabitation;
-	@Column(name="adrRueHab")
+	@Column(name="adr_rue_hab")
 	private String adrRueHab;
-	@Column(name="cpHab")
+	@Column(name="cp_hab")
 	private String cpHab;
-	@Column(name="adrVilleHab")
+	@Column(name="adr_ville_hab")
 	private String adrVilleHab;
-	@Column(name="nbPersonne")
+	@Column(name="nb_personne")
 	private int nbPersonne;
-	@ManyToOne  // 1 usager pour l�habitation
-	@JoinColumn(name="idUsager")
+	@ManyToOne (
+			cascade = CascadeType.REMOVE
+	)
+	@JsonIgnore// 1 usager pour l'habitation
+	@JoinColumn(name="id_usager")
 	private Usager usager;
 	@OneToMany  // plusieurs poubelles pour 1 habitation
-	@JoinColumn(name = "idHabitation")
+	@JoinColumn(name = "id_habitation")
 	private List<Poubelle> lesPoubelles;
 	@OneToMany  // plusieurs factures pour 1 habitation
-	@JoinColumn(name = "idHabitation")
+	@JoinColumn(name = "id_habitation")
 	private List<Facture> lesFactures;
 
-	public Habitation() {
-		super();
-	}
-	public Habitation(String idHabitation, String adrRueHab, String cpHab, String adrVilleHab, int nbPersonne,
-			Usager usager) {
-		super();
-		this.idHabitation = idHabitation;
-		this.adrRueHab = adrRueHab;
-		this.cpHab = cpHab;
-		this.adrVilleHab = adrVilleHab;
-		this.nbPersonne = nbPersonne;
+	public void addUsager(Usager usager) {
 		this.usager = usager;
-		this.lesPoubelles = new ArrayList<Poubelle>();
-		this.lesFactures = new ArrayList<Facture>();
 	}
+	public void removeUsager(Usager usager) {
+		this.usager = null;
+	}
+
 	public String getIdHabitation() {
 		return idHabitation;
 	}

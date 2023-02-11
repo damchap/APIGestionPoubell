@@ -1,20 +1,19 @@
 package com.boc.gestionPoubelle.service.impl;
 
-import com.boc.gestionPoubelle.service.SchoolService;
+import com.boc.gestionPoubelle.model.Facture;
+import com.boc.gestionPoubelle.model.Usager;
+import com.boc.gestionPoubelle.service.FactureService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
-@Service
-public class SchoolServiceImpl implements SchoolService {
-
-
+@Service("factureService")
+public class FactureServiceImpl implements FactureService {
     /**
-     * @param school
+     * @param facture
      */
     @Override
-    public void create(School school) {
+    public void create(Facture facture) {
 
     }
 
@@ -23,7 +22,7 @@ public class SchoolServiceImpl implements SchoolService {
      * @return
      */
     @Override
-    public Optional<School> getById(Long id) {
+    public Optional<Facture> getById(int id) {
         return Optional.empty();
     }
 
@@ -31,7 +30,7 @@ public class SchoolServiceImpl implements SchoolService {
      * @return
      */
     @Override
-    public List<School> get() {
+    public List<Facture> get() {
         return null;
     }
 
@@ -39,16 +38,16 @@ public class SchoolServiceImpl implements SchoolService {
      * @param id
      */
     @Override
-    public void delete(Long id) {
+    public void delete(int id) {
 
     }
 
     /**
-     * @param school
+     * @param usager
      * @return
      */
     @Override
-    public Optional<School> update(School school) {
+    public Optional<Facture> update(Usager usager) {
         return Optional.empty();
     }
 }

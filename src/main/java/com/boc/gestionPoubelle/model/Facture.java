@@ -1,25 +1,21 @@
 package com.boc.gestionPoubelle.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "facture")
 public class Facture {
 	@Id
-	@GeneratedValue
-	@Column(name = "idFacture")
-	private int idFacture;
-	@Column(name = "moisF")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_facture")
+	private long idFacture;
+	@Column(name = "mois_f")
 	private int moisF;
-	@Column(name = "anF")
+	@Column(name = "an_f")
 	private int anF;
-	@Column(name = "nomFacture")
+	@Column(name = "nom_facture")
 	private String nomFacture;
-	@Column(name = "idHabitation")
+	@Column(name = "id_habitation")
 	private String idHabitation;
 
 
@@ -27,7 +23,7 @@ public class Facture {
 		super();
 	}
 
-	public Facture(int idFacture, int moisF, int anF, String nomFacture, String idHabitation) {
+	public Facture(long idFacture, int moisF, int anF, String nomFacture, String idHabitation) {
 		super();
 		this.idFacture = idFacture;
 		this.moisF = moisF;
@@ -48,7 +44,7 @@ public class Facture {
 
 	}
 
-	public int getIdFacture() {
+	public long getIdFacture() {
 		return idFacture;
 	}
 

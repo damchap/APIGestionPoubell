@@ -13,39 +13,16 @@ import javax.persistence.Table;
 public class Levee {
 	@Id
 	@GeneratedValue
-	@Column(name="idLevee")
-	private int idLevee;
-	@Column(name="laDate")
+	@Column(name="id_levee")
+	private Long idLevee;
+	@Column(name="la_date")
 	private Date laDate;
 	@Column(name="poids")
 	private double poids;
-	@Column(name="idPoubelle")
+	@Column(name="id_poubelle")
 	private String idPoubelle;
 
-
-	public Levee() {
-		super();
-	}
-
-
-	public Levee(int idLevee, Date laDate, double poids, String idPoubelle) {
-		super();
-		this.idLevee = idLevee;
-		this.laDate = laDate;
-		this.poids = poids;
-		this.idPoubelle = idPoubelle;
-
-	}
-
-	public Levee(Date laDate, double poids, String idPoubelle, String immatriculation, String idChauffeur) {
-		super();
-		this.laDate = laDate;
-		this.poids = poids;
-		this.idPoubelle = idPoubelle;
-
-	}
-
-	public int getIdLevee() {
+	public long getIdLevee() {
 		return idLevee;
 	}
 	public Date getLaDate() {
