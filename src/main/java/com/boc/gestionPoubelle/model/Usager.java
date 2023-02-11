@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.persistence.metamodel.IdentifiableType;
 
 @Entity
 @Table(name="usager")
@@ -112,5 +113,4 @@ public class Usager {
 		return "Usager [idUsager=" + idUsager + ", nom=" + nom + ", prenom=" + prenom + ", adrRueUsager=" + adrRueUsager
 				+ ", cpUsager=" + cpUsager + ", adrVilleUsager=" + adrVilleUsager + "]";
 	}
-
 }

@@ -7,9 +7,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface HabitationService {
-    void create(Habitation habitation);
+    Habitation create(Habitation habitation);
     Optional<Habitation> getById(String id);
-    List<Habitation> get();
+    List<Habitation> getAll();
     void delete(String id);
-    Optional<Habitation> update(Usager usager );
+    Habitation update(Habitation habitation);
+
+    List<Habitation> getHabitationByUsager(String id);
 }

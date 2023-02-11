@@ -9,66 +9,97 @@
 
 <h3 align="center">TP API Spring Boot with Hybernate</h3>
 <p align="center">
-<table>
-    <tbody>
-        <td align="center">
-            <img width="800" height="0" /><br>
-            <i>Status:</i> Early Access</b> <br>
-            <sup> Please report any issues 🐛</sup><br>
-            <sub>Made possible by my <a href="https://github.com/sponsors/damchap">Sponsor Program 💖</a>
-            <img width="800" height="0" /><br>
-</td>
-    </tbody>
-</table>
+   <table>
+       <tbody>
+           <td align="center">
+               <img width="800" height="0" /><br>
+               <i>Status:</i> Early Access</b> <br>
+               <sup> Please report any issues 🐛</sup><br>
+               <sub>Made possible by my <a href="https://github.com/sponsors/damchap">Sponsor Program 💖</a>
+               <img width="800" height="0" /><br>
+           </td>
+       </tbody>
+   </table>
 </p>
-  <p align="center">
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
-  </p>
-</div>
+     <p align="center">
+       <a href="https://github.com/damchap/APIGestionPoubelle">View Demo</a>
+       ·
+       <a href="https://github.com/damchap/APIGestionPoubelle/issues">Report Bug</a>
+       ·
+       <a href="https://github.com/damchap/APIGestionPoubelle/issues">Request Feature</a>
+     </p>
+   </div>
 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+
 ### Project context
 
-Build an API of your choice with the spring boot framework and hibernate
-1. Choose a concept about a soccer club, a city or other things, do not take the example made in class.
-2. A mini API with three controllers, Ex: (Student, School, Classroom).
-3. The CRUD method (Create, Retrieve, Update, Delete, List) for each controller.
-4. A relationship between at least two tables (for example between Student and School as seen in the
-   during the course) with the annotation @OneToMany.
-5. A relationship between at least two tables, see @oneToOne, @ManyToMany in
-   optional bonus points. Example of a tutorial that explains it well.
-6. The model diagram of your database as the example in the course.
+Project of the api of management of the dustbins for cities.
+
+Project realized in the framework of courses on Spring boot.
+
+### Built With
+
+* [Spring Boot](https://spring.io/projects/spring-boot)
+* [Hibernate](https://hibernate.org/)
+* [H2 Database](https://www.h2database.com/html/main.html) for development environment
+
+### Customer request / Course request
+
+> Build an API of your choice with the spring boot framework and hibernate
+
+Choose a concept about a soccer club, a city or other things, do not take the example made in class.
+A mini API with three controllers, Ex: (Student, School, Classroom).
+The CRUD method (Create, Retrieve, Update, Delete, List) for each controller.
+A relationship between at least two tables (for example between Student and School as seen in the during the course) with the annotation @OneToMany.
+A relationship between at least two tables, see @oneToOne, @ManyToMany in optional bonus points. Example of a tutorial that explains it well.
+The model diagram of your database as the example in the course.
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Project is based on Spring Boot and Hibernate, 
 
 ### Prerequisites
 
+* Java 17
+* IDE (IntelliJ, Eclipse, ...)
+* Gradle
+* API Client (Postman, Insomnia, ...)
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/damchap/APIGestionPoubelle.git
+   ```
+2. Open the project with your IDE
+3. Run the project
+4. Open your API Client and test the API
+5. Enjoy
+6. (Optional) You can change the port of the server in the application.properties file (default port is 8383) 
+7. (Optional) You can change the database in the application.properties file (default database is H2)
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+### API Documentation
+
+https://github.com/damchap/APIGestionPoubelle/wiki/API-Documentation
 
 
 <!-- LICENSE -->
-## License
+## ➤ License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+## 🙇 Author
+#### Damien Chapart
+- Github: [@damchap](https://github.com/damchap)
 
 
 
@@ -79,63 +110,49 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 classDiagram
 direction BT
 class Facture {
-  + Facture() 
-  + Facture(int, int, int, String, String) 
-  + Facture(int, int, String, String) 
-  - int idFacture
-  - int anF
-  - int moisF
-  - String nomFacture
   - String idHabitation
+  - int anF
+  - String nomFacture
+  - long idFacture
+  - int moisF
 }
 class Habitation {
-  + Habitation(String, String, String, String, int, Usager) 
-  + Habitation() 
-  - String idHabitation
-  - Usager usager
-  - String adrRueHab
-  - String cpHab
-  - List~Facture~ lesFactures
   - List~Poubelle~ lesPoubelles
-  - String adrVilleHab
+  - String adrRueHab
   - int nbPersonne
+  - List~Facture~ lesFactures
+  - Usager usager
+  - String idHabitation
+  - String adrVilleHab
+  - String cpHab
 }
 class Levee {
-  + Levee() 
-  + Levee(int, Date, double, String) 
-  + Levee(Date, double, String, String, String) 
-  - int idLevee
   - Date laDate
-  - String idPoubelle
   - double poids
+  - Long idLevee
+  - String idPoubelle
 }
 class Poubelle {
-  + Poubelle(String, String, TypeDechet) 
-  + Poubelle() 
   - String idHabitation
   - String idPoubelle
-  - TypeDechet nature
   - List~Levee~ lesLevees
+  - TypeDechet nature
 }
 class TypeDechet {
-  + TypeDechet(String, String, double) 
-  + TypeDechet() 
   - String libelle
   - String idTypeDechet
   - double tarif
 }
 class Usager {
-  + Usager(String, String, String, String, String, String) 
-  + Usager() 
-  - String adrRueUsager
-  - List~Habitation~ lesHabitations
   - String cpUsager
-  - String adrVilleUsager
-  - String mdp
   - String idUsager
+  ~ List~Habitation~ lesHabitations
   - String prenom
+  - String mdp
   - String login
+  - String adrRueUsager
   - String nom
+  - String adrVilleUsager
 }
 
 Habitation "1" *--> "lesFactures *" Facture 
@@ -147,5 +164,4 @@ Usager "1" *--> "lesHabitations *" Habitation
 
 
 ```
-
 

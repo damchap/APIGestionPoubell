@@ -6,9 +6,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/usager")
+@RequestMapping("/api/usagers")
 public class UsagerController {
     @Resource(name = "usagerService")
     private UsagerService usagerService;
@@ -25,6 +26,11 @@ public class UsagerController {
     @PostMapping()
     public Usager create(@RequestBody Usager usager) {
         return usagerService.create(usager);
+    }
+
+    @PutMapping("/{id}")
+    public Optional<Usager> update(@PathVariable String id, @RequestBody Usager usager) {
+        return usagerService.update(usager);
     }
 
 }
