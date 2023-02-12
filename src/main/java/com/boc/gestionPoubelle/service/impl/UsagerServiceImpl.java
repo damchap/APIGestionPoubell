@@ -20,7 +20,8 @@ public class UsagerServiceImpl implements UsagerService {
      */
     @Override
     public Usager create(Usager usager) {
-        return usager;
+        // save usager and return 201 Created
+        return usagerRepository.save(usager);
     }
     /**
      * @param id

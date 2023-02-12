@@ -26,7 +26,6 @@ public class HabitationServiceImpl implements HabitationService {
      */
     @Override
     public Habitation create(Habitation habitation) {
-
         return habitationRepository.save(habitation);
     }
 
@@ -36,7 +35,7 @@ public class HabitationServiceImpl implements HabitationService {
      */
     @Override
     public Optional<Habitation> getById(String id) {
-        return Optional.empty();
+        return habitationRepository.findById(id);
     }
 
     /**

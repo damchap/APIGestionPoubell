@@ -31,9 +31,9 @@ public class Usager {
 	@OneToMany(
 			mappedBy = "usager",
 			cascade = CascadeType.REMOVE,
-			orphanRemoval = true
+			fetch = FetchType.EAGER
 	)
-	List<Habitation> lesHabitations = new ArrayList<>();
+	private List<Habitation> lesHabitations = new ArrayList<>();
 
 
 	public String getIdUsager() {

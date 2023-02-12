@@ -1,9 +1,10 @@
 package com.boc.gestionPoubelle.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.*;
 
@@ -21,11 +22,10 @@ public  class Habitation {
 	private String adrVilleHab;
 	@Column(name="nb_personne")
 	private int nbPersonne;
-	@ManyToOne (
-			cascade = CascadeType.REMOVE
-	)
-	@JsonIgnore// 1 usager pour l'habitation
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name="id_usager")
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	// 1 usager pour l'habitation
 	private Usager usager;
 	@OneToMany  // plusieurs poubelles pour 1 habitation
 	@JoinColumn(name = "id_habitation")
@@ -78,8 +78,8 @@ public  class Habitation {
 	public Usager getUsager() {
 		return usager;
 	}
-	public void setUsager(Usager usager) {
-		this.usager = usager;
+	public void setUsager(Optional<Usager> usager) {
+		this.usager = usager.get();
 	}
 	public List<Poubelle> getLesPoubelles() {
 		return lesPoubelles;
